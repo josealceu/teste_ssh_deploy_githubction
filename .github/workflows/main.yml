@@ -1,5 +1,5 @@
 name: test
-on:
+on:rsync
   push:
     branches: [main]
     
@@ -7,6 +7,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: checkout
+        uses: actions/checkout@v1
+        
       - name: SSH Remote Commands
         uses: appleboy/ssh-action@v0.1.8
         with:
@@ -16,4 +19,6 @@ jobs:
           key: ${{secrets.SSH_KEY}}
           passphrase: ${{secrets.SSH_PASSPHRASE}}
           script: touch /home/axondev/teste.txt
+          timeout: 400
+          command_timeout: 400
          
