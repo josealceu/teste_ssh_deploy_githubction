@@ -19,6 +19,6 @@ jobs:
           key: ${{secrets.SSH_KEY}}
           passphrase: ${{secrets.SSH_PASSPHRASE}}
           script: touch /home/axondev/teste.txt
-          timeout: 400
-          command_timeout: 400
+          timeout: 400s
+          command_timeout: 400m
          
