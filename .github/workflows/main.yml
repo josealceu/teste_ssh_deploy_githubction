@@ -1,4 +1,4 @@
-name: test
+name: testado
 on:
   push:
     branches: [main]
